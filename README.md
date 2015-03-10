@@ -50,22 +50,15 @@ There are three main components of this Chord DHT Implementation:
   * 5 for NodeDHT nodes 
 
 2. For machine 1 (SuperNode)
-Execute:
-
-    ./startRmiRegistry.s   
-to start the rmiregistry for the SuperNode to bind to, if this gives an error, it means it's already running, that is fine & continue to the next command below:
-
-    ./compile.sh
-
-    ./runSuperNode.sh
-
+  Execute:
+        ./startRmiRegistry.sh
+  to start the rmiregistry for the SuperNode to bind to, if this gives an error, it means it's already running, that is fine & continue to the next command below:
+        ./compile.sh
+        ./runSuperNode.sh
 3. For machine 2 (ClientNode)
-Execute:
-
-    java -cp bin/ -Djava.security.policy=src/policyfile ClientNode [SuperNode's IP Address]
-
+  Execute:
+        java -cp bin/ -Djava.security.policy=src/policyfile ClientNode [SuperNode's IP Address]
 4. For all other machines (NodeDHT)
-Execute at each machine, to start a Node at each host:
-
-    java -cp bin-Djava.security.policy=src/policyfile NodeDHT [Port Number] [SuperNode's IP Address]
+  Execute at each machine, to start a Node at each host:
+        java -cp bin-Djava.security.policy=src/policyfile NodeDHT [Port Number] [SuperNode's IP Address]
 
