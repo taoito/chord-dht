@@ -36,32 +36,44 @@ There are three main components of this Chord DHT Implementation:
 
    c) With the Node:
 
-     (i) Inserting the Sample Dictionary file: it parses the whole file, and for each line: it hashes the Word string using SHA-1 hash into a key within the 2^m key space. The Client contacts the SuperNode through RMI to get a random node's contact. It then establishes a connection to this Node, and send a message tryInsert with the key, the parsed Word and Meaning and wait for the Node's response as confirmation.
+	(i) Inserting the Sample Dictionary file: it parses the whole file, and for each line: it hashes the Word string using SHA-1 hash into a key within the 2^m key space. The Client contacts the SuperNode through RMI to get a random node's contact. It then establishes a connection to this Node, and send a message tryInsert with the key, the parsed Word and Meaning and wait for the Node's response as confirmation.
    
-     (ii) Lookup a Word: the user can enter a word string, then the Client hashes this into a key. Again, it asks the SuperNode for a random Node's contact and establishes a connection to this node to send a message lookupKey with this key. It waits for the Node to return the retrieved Meaning string from the DHT and prints out the command line. If it's not there, the string is returned as "Not Found!".
+	(ii) Lookup a Word: the user can enter a word string, then the Client hashes this into a key. Again, it asks the SuperNode for a random Node's contact and establishes a connection to this node to send a message lookupKey with this key. It waits for the Node to return the retrieved Meaning string from the DHT and prints out the command line. If it's not there, the string is returned as "Not Found!".
     
-     (iii) Inserting a word: the User can enter a Word string, then its Meaning string. After that, the same is done as part (i) where the client hashes the Word and sends the tryInsert message to a random Node.
+	(iii) Inserting a word: the User can enter a Word string, then its Meaning string. After that, the same is done as part (i) where the client hashes the Word and sends the tryInsert message to a random Node.
 
 
 ##Execution Setup
 
    a) Sample Setup with multiple machines:
-        1 for SuperNode 
+
+	1 for SuperNode 
+
 	1 for ClientNode
+
 	5 for NodeDHT nodes 
 
    b) For machine 1 (SuperNode)
-   Execute:
-      ./startRmiRegistry.sh
-   to start the rmiregistry for the SuperNode to bind to, if this gives an error, it means it's already running, that is fine & continue to the next command below:
-      ./compile.sh
-      ./runSuperNode.sh
+   
+	Execute:
+
+    ./startRmiRegistry.sh
+   
+	to start the rmiregistry for the SuperNode to bind to, if this gives an error, it means it's already running, that is fine & continue to the next command below:
+
+    ./compile.sh
+
+    ./runSuperNode.sh
 
    c) For machine 2 (ClientNode)
-   Execute:
-      java -cp bin/ -Djava.security.policy=src/policyfile ClientNode [SuperNode's IP Address]
+
+	Execute:
+
+    java -cp bin/ -Djava.security.policy=src/policyfile ClientNode [SuperNode's IP Address]
 
    d) For all other machines (NodeDHT)
-   Execute one line at each machine, to start a Node at each host:
-      java -cp bin-Djava.security.policy=src/policyfile NodeDHT [Port Number] [SuperNode's IP Address]
+
+	Execute one line at each machine, to start a Node at each host:
+
+    java -cp bin-Djava.security.policy=src/policyfile NodeDHT [Port Number] [SuperNode's IP Address]
 
