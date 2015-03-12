@@ -124,24 +124,24 @@ public class SuperNode extends UnicastRemoteObject implements SuperNodeDef
     public static void main ( String args[] ) throws Exception
     {
         // Assign a security manager, in the event that dynamic
-	// classes are loaded
+	    // classes are loaded
         if (System.getSecurityManager() == null)
             System.setSecurityManager ( new RMISecurityManager() );
 
-	busy = 0;
+	    busy = 0;
 
         // Create an instance of our power service server ...
-	try {
+	    try {
         	SuperNode svr = new SuperNode();
 
         	// ... and bind it with the RMI Registry
         	Naming.rebind ("SuperNodeDef", svr);
         	System.out.println ("SuperNode started, service bound and waiting for connections ....");
-		numNodes = 0;
-		System.out.println ("Current number of nodes = " + numNodes + "\n");
-	} catch (Exception e) {
-		System.out.println ("Supernode Failed to start: " + e);
-	}
+		    numNodes = 0;
+		    System.out.println ("Current number of nodes = " + numNodes + "\n");
+	    } catch (Exception e) {
+		    System.out.println ("Supernode Failed to start: " + e);
+	    }
 
     }
 }

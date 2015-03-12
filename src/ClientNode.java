@@ -13,7 +13,7 @@ public class ClientNode
 {
 	static SuperNodeDef service; 
 	static int m = 5;
-    	static int numDHT = (int)Math.pow(2,m);
+    static int numDHT = (int)Math.pow(2,m);
 
 	public static void readSampleWords(){
                 File                            fileSample      = null;

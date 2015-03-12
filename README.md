@@ -59,7 +59,7 @@ There are three main components of this Chord DHT Implementation:
 
         ./compile.sh
 
-        ./runSuperNode.sh
+        java -cp bin/ -Djava.security.policy=src/policyfile SuperNode
 
 3. For machine 2 (ClientNode)
 
