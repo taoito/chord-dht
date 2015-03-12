@@ -12,8 +12,8 @@ import java.net.*;
 public class ClientNode 
 {
 	static SuperNodeDef service; 
-	static int m = 5;
-    static int numDHT = (int)Math.pow(2,m);
+	static int m;
+    static int numDHT;
 
 	public static void readSampleWords(){
                 File                            fileSample      = null;
@@ -123,12 +123,15 @@ public class ClientNode
 	public static void main(String args[]) throws Exception
 	{
 		// Check for hostname argument
-		if (args.length != 1)
+		if (args.length != 2)
 		{
 			System.out.println
-			("Syntax - ClientNode host");
+			("Syntax - ClientNode host numNodesLg2");
 			System.exit(1);
 		}
+
+        m = Integer.parseInt(args[1]);
+        numDHT = (int)Math.pow(2,m);
 
 		// Assign security manager
 		if (System.getSecurityManager() == null)

@@ -59,17 +59,17 @@ There are three main components of this Chord DHT Implementation:
 
         ./compile.sh
 
-        java -cp bin/ -Djava.security.policy=src/policyfile SuperNode
+        java -cp bin/ -Djava.security.policy=src/policyfile SuperNode [numNodesLg2]
 
 3. For machine 2 (ClientNode)
 
   Execute:
 
-        java -cp bin/ -Djava.security.policy=src/policyfile ClientNode [SuperNode's IP Address]
+        java -cp bin/ -Djava.security.policy=src/policyfile ClientNode [SuperNode's IP Address] [numNodesLg2]
 
 4. For all other machines (NodeDHT)
 
   Execute at each machine, to start a Node at each host:
 
-        java -cp bin-Djava.security.policy=src/policyfile NodeDHT [Port Number] [SuperNode's IP Address]
+        java -cp bin-Djava.security.policy=src/policyfile NodeDHT [Port Number] [SuperNode's IP Address] [numNodesLg2]
 

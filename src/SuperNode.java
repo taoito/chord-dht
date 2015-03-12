@@ -16,9 +16,12 @@ public class SuperNode extends UnicastRemoteObject implements SuperNodeDef
 {
     static int numNodes;
     static int busy;
-    int m = 5;
-    int numDHT = (int)Math.pow(2,m);
-    Node[] nodeList = new Node[numDHT];
+    //int m = 5;
+    //int numDHT = (int)Math.pow(2,m);
+    //Node[] nodeList = new Node[numDHT];
+    int m;
+    int numDHT;
+    Node[] nodeList;
     List<Integer> nodeIDList = new ArrayList<Integer>();
     
     public SuperNode () throws RemoteException
@@ -123,6 +126,9 @@ public class SuperNode extends UnicastRemoteObject implements SuperNodeDef
 
     public static void main ( String args[] ) throws Exception
     {
+        m = Integer.parseInt(args[0]);
+        numDHT = (int)Math.pow(2,m);
+        nodeList = new Node[numDHT];
         // Assign a security manager, in the event that dynamic
 	    // classes are loaded
         if (System.getSecurityManager() == null)
