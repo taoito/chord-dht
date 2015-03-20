@@ -11,9 +11,9 @@ import java.net.*;
 //
 public class ClientNode 
 {
-	static SuperNodeDef service; 
-	static int m;
-    static int numDHT;
+	private static SuperNodeDef service; 
+	private static int m;
+    private static int numDHT;
 
 	public static void readSampleWords(){
                 File                            fileSample      = null;
@@ -130,7 +130,8 @@ public class ClientNode
 			System.exit(1);
 		}
 
-        m = Integer.parseInt(args[1]);
+        int numNodes = Integer.parseInt(args[1]);
+        m = (int) Math.ceil(Math.log(numNodes) / Math.log(2));
         numDHT = (int)Math.pow(2,m);
 
 		// Assign security manager

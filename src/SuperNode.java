@@ -19,9 +19,9 @@ public class SuperNode extends UnicastRemoteObject implements SuperNodeDef
     //int m = 5;
     //int numDHT = (int)Math.pow(2,m);
     //Node[] nodeList = new Node[numDHT];
-    int m;
-    int numDHT;
-    Node[] nodeList;
+    private static int m;
+    private static int numDHT;
+    private static Node[] nodeList;
     List<Integer> nodeIDList = new ArrayList<Integer>();
     
     public SuperNode () throws RemoteException
