@@ -15,19 +15,19 @@ public class NodeDHT implements Runnable //extends UnicastRemoteObject implement
 {
 
 	private int ID;
-	static SuperNodeDef service;
+	private static SuperNodeDef service;
 
 	private Socket connection;
-	static ServerSocket serverSocket = null; 
+	private static ServerSocket serverSocket = null; 
 
-	static Node me, pred;
+	private static Node me, pred;
 	//static int m = 5;
 	//static FingerTable[] finger = new FingerTable[m+1];
 	//static int numDHT = (int)Math.pow(2,m);
-	static int m;
-	static FingerTable[] finger;
-	static int numDHT;
-	static List<Word> wordList = new ArrayList<Word>();
+	private static int m;
+	private static FingerTable[] finger;
+	private static int numDHT;
+	private static List<Word> wordList = new ArrayList<Word>();
 
 	public NodeDHT(Socket s, int i) {
 		this.connection = s;
@@ -40,13 +40,14 @@ public class NodeDHT implements Runnable //extends UnicastRemoteObject implement
 		// Check for hostname argument
 		if (args.length < 3)
 		{
-			System.out.println("Syntax - NodeDHT [LocalPortnumber] [SuperNode-HostName] [numNodesLg2]");
+			System.out.println("Syntax - NodeDHT [LocalPortnumber] [SuperNode-HostName] [numNodes]");
 		System.out.println("         *** [LocaPortNumber] = is the port number which the Node will be listening waiting for connections.");
 			System.out.println("         *** [SuperNode-HostName] = is the hostName of the SuperNode.");
 			System.exit(1);
 		}	
         
-	    m = Integer.parseInt(args[2]);
+        int numNodesRequested = Integer.parseInt(args[2]);
+        m = (int) Math.ceil(Math.log(numNodesRequested) / Math.log(2));
 	    finger = new FingerTable[m+1];
 	    numDHT = (int)Math.pow(2,m);
 
