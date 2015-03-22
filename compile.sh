@@ -1,6 +1,6 @@
 rm -fr bin/*
 
-javac -cp src/ -d bin/ src/*.java
+javac -cp bin -d bin src/*.java
 
 
 #java -Djava.security.policy=src/java/policyfile.txt PowerServiceServer
