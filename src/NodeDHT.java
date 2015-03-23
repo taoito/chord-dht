@@ -41,13 +41,13 @@ public class NodeDHT implements Runnable //extends UnicastRemoteObject implement
 		if (args.length < 3)
 		{
 			System.out.println("Syntax - NodeDHT [LocalPortnumber] [SuperNode-HostName] [numNodes]");
-		System.out.println("         *** [LocaPortNumber] = is the port number which the Node will be listening waiting for connections.");
+		    System.out.println("         *** [LocaPortNumber] = is the port number which the Node will be listening waiting for connections.");
 			System.out.println("         *** [SuperNode-HostName] = is the hostName of the SuperNode.");
 			System.exit(1);
 		}	
         
-        int numNodesRequested = Integer.parseInt(args[2]);
-        m = (int) Math.ceil(Math.log(numNodesRequested) / Math.log(2));
+        int maxNumNodes = Integer.parseInt(args[2]);
+        m = (int) Math.ceil(Math.log(maxNumNodes) / Math.log(2));
 	    finger = new FingerTable[m+1];
 	    numDHT = (int)Math.pow(2,m);
 

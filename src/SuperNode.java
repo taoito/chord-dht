@@ -133,8 +133,8 @@ public class SuperNode extends UnicastRemoteObject implements SuperNodeDef
 			System.exit(1);
 		}
 
-        int numNodesRequested = Integer.parseInt(args[0]);
-        m = (int) Math.ceil(Math.log(numNodesRequested) / Math.log(2));
+        int maxNumNodes = Integer.parseInt(args[0]);
+        m = (int) Math.ceil(Math.log(maxNumNodes) / Math.log(2));
         numDHT = (int)Math.pow(2,m);
 
         nodeList = new Node[numDHT];

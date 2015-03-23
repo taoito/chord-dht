@@ -59,17 +59,25 @@ There are three main components of this Chord DHT Implementation:
 
         ./compile.sh
 
-        java -cp bin -Djava.security.policy=src/policyfile SuperNode [numNodes]
+        java -cp bin -Djava.security.policy=src/policyfile SuperNode [maxNumNodes]
 
 3. For machine 2 (ClientNode)
 
   Execute:
 
-        java -cp bin -Djava.security.policy=src/policyfile ClientNode [SuperNode's IP Address] [numNodes]
+        java -cp bin -Djava.security.policy=src/policyfile ClientNode [SuperNode's IP Address] [maxNumNodes]
 
 4. For all other machines (NodeDHT)
 
   Execute at each machine, to start a Node at each host:
 
-        java -cp bin -Djava.security.policy=src/policyfile NodeDHT [Port Number] [SuperNode's IP Address] [numNodes]
+        java -cp bin -Djava.security.policy=src/policyfile NodeDHT [Port Number] [SuperNode's IP Address] [maxNumNodes]
+
+###TO DO
+Build / Project structure with Gradle
+Implement dynamic number of Nodes for Chord
+Implement Node Departure
+Refine Hash function / Node Identifier assignment
+Reduce SuperNode's functionality to a simple NodeListing component
+Implement Multiple Nodes Joins
 

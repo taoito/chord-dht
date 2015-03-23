@@ -126,12 +126,12 @@ public class ClientNode
 		if (args.length != 2)
 		{
 			System.out.println
-			("Syntax - ClientNode [Supernode's IP] [numNodes]");
+			("Syntax - ClientNode [Supernode's IP] [maxNumNodes]");
 			System.exit(1);
 		}
 
-        int numNodesRequested = Integer.parseInt(args[1]);
-        m = (int) Math.ceil(Math.log(numNodesRequested) / Math.log(2));
+        int maxNumNodes = Integer.parseInt(args[1]);
+        m = (int) Math.ceil(Math.log(maxNumNodes) / Math.log(2));
         numDHT = (int)Math.pow(2,m);
 
 		// Assign security manager
