@@ -1,9 +1,9 @@
 public class FingerTable{
 
-	private 	int 		start;
-	private 	int  		intervalBegin;
-	private 	int		intervalEnd;
-	private		Node		successor;
+	private int start;
+	private int intervalBegin;
+	private int intervalEnd;
+	private Node successor;
 
 	//Setters
 	public void setStart(int newStart){

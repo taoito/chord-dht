@@ -74,10 +74,10 @@ There are three main components of this Chord DHT Implementation:
         java -cp bin -Djava.security.policy=src/policyfile NodeDHT [Port Number] [SuperNode's IP Address] [maxNumNodes]
 
 ###TO DO
-Build / Project structure with Gradle
-Implement dynamic number of Nodes for Chord
-Implement Node Departure
-Refine Hash function / Node Identifier assignment
-Reduce SuperNode's functionality to a simple NodeListing component
+Build / Project structure with Gradle. 
+Implement dynamic number of Nodes for Chord. 
+Implement Node Departure. 
+Refine Hash function / Node Identifier assignment. 
+Reduce SuperNode's functionality to a simple NodeListing component. 
 Implement Multiple Nodes Joins
 
